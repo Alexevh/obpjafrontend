@@ -51,7 +51,6 @@ var AppComponent = (function () {
     };
     AppComponent.prototype.editarTipo = function (form) {
         var _this = this;
-        console.log(form.value);
         var body = form.value;
         this.http.put('https://obpja153012.herokuapp.com/api/tipoobjeto/' + this.tipoElegido._id, body).subscribe(function (res) {
             console.log(res);
@@ -59,12 +58,12 @@ var AppComponent = (function () {
             _this.refreshTipos();
         });
     };
-    AppComponent.prototype.elegirModo = function () {
-        if (this.modo == "alta") {
-            this.modo = "edicion";
+    AppComponent.prototype.onSubmit2 = function (buttonType, form) {
+        if (buttonType === "Alta") {
+            this.onSubmit(form);
         }
-        else {
-            this.modo = "alta";
+        if (buttonType === "Edicion") {
+            this.editarTipo(form);
         }
     };
     return AppComponent;

@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { TipoObjeto } from "./tipoobjeto";
-import { NgForm } from '@angular/forms';
+import { NgForm, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { Http } from '@angular/http';
 import firefox = require('selenium-webdriver/firefox');
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
@@ -15,6 +15,7 @@ import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
   `] 
   
 })
+
 
 export class AppComponent { 
   titulo = 'Lista de Tareas';
@@ -75,8 +76,10 @@ export class AppComponent {
 
 
   editarTipo(form: NgForm){
-    console.log(form.value);
+    
     const { value: body } = form;
+    
+
     this.http.put('https://obpja153012.herokuapp.com/api/tipoobjeto/'+this.tipoElegido._id,body).subscribe(res => {
       console.log(res);
       this.tipoElegido =null;
@@ -86,14 +89,17 @@ export class AppComponent {
   
   }
 
-  elegirModo(){
-    if (this.modo=="alta")
-    {
-      this.modo="edicion";
-    } else {
-      this.modo ="alta";
+  onSubmit2(buttonType: String, form: NgForm): void {
+    if(buttonType==="Alta") {
+        this.onSubmit(form);
     }
-  }
+    if(buttonType==="Edicion"){
+        this.editarTipo(form);
+    }
+
+}
+
+
 
 
 

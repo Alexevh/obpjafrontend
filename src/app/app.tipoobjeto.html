@@ -1,44 +1,39 @@
 
 
-<input type="button" (click)="elegirModo()" value="edicion" />
+<div id="principal" >
+
 
     <h3>Alta de nuevo tipo</h3>
     <form (ngSubmit)="onSubmit(f)" #f="ngForm">
         <label for='nombreTipo'>Nombre dle nuevo tipo</label>
-        <input type="text" ngModel name="nombreTipo"  value="{{tipoElegido.nombreTipo}}" />
+        <input type="text" ngModel name="nombreTipo" value="{{tipoElegido.nombreTipo}}"/>
         <label for="codigoTipo">Codigo de 3 caracteres</label>
         <input type="text" ngModel name="codigoTipo" value="{{tipoElegido.codigoTipo}}" maxlength="3" minlength="10" style="text-transform:uppercase" />
-        <button type="submit">Ingresar</button>
-        
+        <label for='idBase'>Cod. BD</label>
+        <input type="text" ngModel name="_id" value="{{tipoElegido._id}}" disabled='true'/>  
+        <br>
+        <button type="submit" name="Alta">Ingresar</button>
+        <button type="submit" name="Edicion">Editar</button>
       </form>
 
-      <h3>Eliminar tipo elegido</h3>
-  <form name="frmEliminarTipo" (ngSubmit)="onSubmitEliminarTipo(f)" #f2="ngForm">
-       <div>El tipo elegido a eliminar es {{tipoElegido.nombreTipo}}</div>
-        <button type="submit">Eliminar</button>
-        
-  </form>
+   
 
-      <h3>Editar tipo elegido</h3>
-      <form name="frmEditarTipo" (ngSubmit)="editarTipo(f)" #f3="ngForm">
-          <label for='nombreTipo'>Nombre</label>
-          <input type="text" ngModel name="nombreTipo" value="{{tipoElegido.nombreTipo}}"/>
-          <label for="codigoTipo">Codigo de 3 caracteres</label>
-          <input type="text" ngModel name="codigoTipo" value="{{tipoElegido.codigoTipo}}" maxlength="3" minlength="10" style="text-transform:uppercase" />
-          <input type="text" ngModel name="_id" value="{{tipoElegido._id}}" />   
-             <button type="submit">Editar</button>
+<h3>Listado de tipos</h3>
+    <table id="Grid">
+      <tr><th>Nombre</th><th>Codigo</th></tr>
+      <tr *ngFor="let tipoobjeto of tipos" (click)="elegirTipo(tipoobjeto)">
+        <td>{{ tipoobjeto.nombreTipo }}</td>
+        <td>{{ tipoobjeto.codigoTipo }}</td>
+      </tr>
+
+    </table>
+
+    <h3>Eliminar tipo elegido</h3>
+    <form name="frmEliminarTipo" (ngSubmit)="onSubmitEliminarTipo(f)" #f2="ngForm">
+         <div>El tipo elegido a eliminar es {{tipoElegido.nombreTipo}}</div>
+          <button type="submit">Eliminar</button>
           
-        </form>
+    </form>
   
- 
 
-
-
-  <div>
-      <h3>Lista de tipos existentes</h3>
-      <ul>
-        <li *ngFor="let tipoobjeto of tipos" (click)="elegirTipo(tipoobjeto)">
-          <span>{{ tipoobjeto.nombreTipo }}</span>
-        </li>
-      </ul>
-    </div>
+  </div>

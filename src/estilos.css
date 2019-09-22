@@ -1,0 +1,102 @@
+input:focus, textarea:focus {
+    
+    border:1px solid #1668C4;
+}
+
+input[type="button"]{
+    width: 100%;
+    margin-bottom: 2px;
+    background: #1668C4;
+    color: #fff;
+    border: none;
+}
+
+input[type="text"]{
+    width: 50%;
+    margin-bottom: 2px;
+    background: rgb(237, 240, 243);
+    border: none;
+}
+
+input[type="button"]:hover{
+    
+    background: #4A88F4;
+    cursor: pointer;
+    
+}
+
+#Grid
+{
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 50%;
+    border-collapse:collapse;
+    
+
+}
+#Grid td, #Grid th
+{
+    font-size:1em;
+    border:1px solid #61ADD7;
+    padding:3px 7px 2px 7px;
+}
+
+#Grid th 
+
+{
+    font-size: 1.1em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#C2D9FE;
+    color: lightslategray;
+    
+}
+
+#Grid tr.odd td
+{
+    color:#000000;
+    background-color:#F2F5A9;
+    
+}
+
+#Grid tr.even
+{
+color: #000000;
+background-color: white;    
+}
+
+#Grid head
+{
+    color:#000000;
+    background-color:teal;
+    
+}
+
+label {
+    font-size: 12px;
+    display: block;
+    width: 100%;
+    
+}
+
+textarea {
+    resize:vertical;
+    max-height: 200px;
+    min-height: 50px;
+}
+
+ textarea {
+    
+    margin-bottom: 20px;
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+    border:1px solid #ccc;
+}
+
+#principal
+{
+    width: 80%;
+    align-content: center;
+    margin-left: 20%;
+}
