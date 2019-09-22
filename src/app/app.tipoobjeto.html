@@ -31,7 +31,8 @@
     <h3>Eliminar tipo elegido</h3>
     <form name="frmEliminarTipo" (ngSubmit)="onSubmitEliminarTipo(f)" #f2="ngForm">
          <div>El tipo elegido a eliminar es {{tipoElegido.nombreTipo}}</div>
-          <button type="submit">Eliminar</button>
+         
+          <button type="submit" onclick="return confirm('Se elininara el registro, esta seguro?')">Eliminar</button>
           
     </form>
   

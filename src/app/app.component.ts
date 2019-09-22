@@ -35,6 +35,7 @@ export class AppComponent {
 
   eliminarTipo():void{
   
+
     this.http.delete('https://obpja153012.herokuapp.com/api/tipoobjeto/'+this.tipoElegido._id).subscribe(res => {
 
       this.refreshTipos();

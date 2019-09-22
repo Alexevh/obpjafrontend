@@ -54,5 +54,14 @@ function altaObjeto()
 }
 
 
+function borrar()
+{
+    var result = confirm("Want to delete?");
+if (result) {
+    var formu = Document.getElementById('frmEliminarTipo');
+    formu.submit();
+}
+}
+
 
 
