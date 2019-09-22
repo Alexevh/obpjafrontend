@@ -18,16 +18,92 @@
     <script src="systemjs.config.js"></script>
     <script src="jquery.js"></script>
     <script src="boostrap.js"></script>
+    <script src="mis-scripts.js"></script>
     <script>
       System.import('main.js').catch(function(err){ console.error(err); });
     </script>
   </head>
 
   <body>
+<header>
+
+    <nav style="background-image:url(img/well.png)" class="navbar navbar-default navbar-fixed-top navbar-inverse">
+              
+      <div class="container-fluid">
+          <div class="navbar-header">
+              
+              <button type="button"class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar-1">
+                  <span class="sr-only"></span>
+                  <span class="icon-bar"></span>
+                   <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+              </button>
+              <a href="#" class="navbar-brand"><img src="img/logotrans.png" style="width:50%" /></a>
+          </div>
+          
+          <div class="collapse navbar-collapse" id="navbar-1">
+              <ul class="nav navbar-nav">
+                  <li><a href="/">Inicio</a></li>
+                  <li><a href="#">Listado</a></li>
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                          
+                          Objetos <span class="caret"></span>
+                      
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a href="#" onclick="altaObjeto()">Alta y bajas</a></li>
+                           <li><a href="#"  onclick="edicionObjeto()">Edicion</a></li>
+                            
+                      </ul>
+                  </li>
+
+                  <li class="dropdown">
+                      <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">
+                          
+                          Tipo Objetos <span class="caret"></span>
+                      
+                      </a>
+                      <ul class="dropdown-menu">
+                          <li><a href="#" onclick="altaTipo()">Alta y bajas</a></li>
+                           <li><a href="#"  onclick="edicionTipo()">Edicion</a></li>
+                            
+                      </ul>
+                  </li>
+              </ul>
+              
+              <form action="" class="navbar-form navbar-left" role="search">
+                  <div class="form-group">
+                      <div class="input-group">
+                          <div class="input-group-addon"><span class="glyphicon glyphicon-search"></span></div>
+                      <input type="text" class="form-control" placeholder="buscar"/>
+                      </div>
+                  </div>
+                  
+              </form>
+              
+          </div>
+          
+      </div>
      
-    <my-app>Loading AppComponent content here ...
- 
-  </my-app>
+  </nav>
+
+
+</header>
+
+    
+    <div id="TipoObjeto">
+        <div id="AltaTipo">
+            <my-app>Loading AppComponent content here ... </my-app>
+        </div>
+        <div id="ModTipo" style='display: none;' ><modtipo>cargando mod tipo</modtipo></div>
+    </div>
+    
+    <div id="Objeto">
+          <div id="AltaObjeto" style='display: none; margin-top: 5%;'>Aca va a ir el formulario de alta de objetos</div>
+          <div id="ModObjeto" style='display: none; margin-top: 5%;'>Aca va a ir el formulario de edicion de objetos</div>
+    </div>
+    
    
   </body>
 </html>

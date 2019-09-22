@@ -25,7 +25,8 @@ export class AppComponent {
   modo = "alta";
 
   constructor(private http: Http){
-
+    this.vaciarTipoElegido();
+    this.refreshTipos();
   }
 
   elegirTipo(_tipo:TipoObjeto):void{
@@ -58,7 +59,7 @@ export class AppComponent {
     
     this.http.delete('https://obpja153012.herokuapp.com/api/tipoobjeto/'+this.tipoElegido._id).subscribe(res => {
 
-      this.tipoElegido =null;
+      this.vaciarTipoElegido();
       this.refreshTipos();
 
        })
@@ -82,7 +83,7 @@ export class AppComponent {
 
     this.http.put('https://obpja153012.herokuapp.com/api/tipoobjeto/'+this.tipoElegido._id,body).subscribe(res => {
       console.log(res);
-      this.tipoElegido =null;
+      this.vaciarTipoElegido();
 
       this.refreshTipos();  
     })
@@ -96,18 +97,16 @@ export class AppComponent {
     if(buttonType==="Edicion"){
         this.editarTipo(form);
     }
-
 }
 
 
-
-
+vaciarTipoElegido()
+{
+  var tipo = {"_id":"", "nombreTipo":"", "codigoTipo":""};
+  this.tipoElegido = tipo;
+}
 
 } /*fin  */
-
-
-
-
 
 
 const tiposLista = [

@@ -16,6 +16,8 @@ var AppComponent = (function () {
         this.titulo = 'Lista de Tareas';
         this.tipos = tiposLista;
         this.modo = "alta";
+        this.vaciarTipoElegido();
+        this.refreshTipos();
     }
     AppComponent.prototype.elegirTipo = function (_tipo) {
         this.tipoElegido = _tipo;
@@ -38,7 +40,7 @@ var AppComponent = (function () {
     AppComponent.prototype.onSubmitEliminarTipo = function (form) {
         var _this = this;
         this.http.delete('https://obpja153012.herokuapp.com/api/tipoobjeto/' + this.tipoElegido._id).subscribe(function (res) {
-            _this.tipoElegido = null;
+            _this.vaciarTipoElegido();
             _this.refreshTipos();
         });
     };
@@ -54,7 +56,7 @@ var AppComponent = (function () {
         var body = form.value;
         this.http.put('https://obpja153012.herokuapp.com/api/tipoobjeto/' + this.tipoElegido._id, body).subscribe(function (res) {
             console.log(res);
-            _this.tipoElegido = null;
+            _this.vaciarTipoElegido();
             _this.refreshTipos();
         });
     };
@@ -65,6 +67,10 @@ var AppComponent = (function () {
         if (buttonType === "Edicion") {
             this.editarTipo(form);
         }
+    };
+    AppComponent.prototype.vaciarTipoElegido = function () {
+        var tipo = { "_id": "", "nombreTipo": "", "codigoTipo": "" };
+        this.tipoElegido = tipo;
     };
     return AppComponent;
 }()); /*fin  */
