@@ -15,6 +15,7 @@ var AppComponent = (function () {
         this.http = http;
         this.titulo = 'Lista de Tareas';
         this.tipos = tiposLista;
+        this.modo = "alta";
     }
     AppComponent.prototype.elegirTipo = function (_tipo) {
         this.tipoElegido = _tipo;
@@ -37,6 +38,7 @@ var AppComponent = (function () {
     AppComponent.prototype.onSubmitEliminarTipo = function (form) {
         var _this = this;
         this.http.delete('https://obpja153012.herokuapp.com/api/tipoobjeto/' + this.tipoElegido._id).subscribe(function (res) {
+            _this.tipoElegido = null;
             _this.refreshTipos();
         });
     };
@@ -47,8 +49,26 @@ var AppComponent = (function () {
             _this.tipos = JSON.parse(res["_body"]);
         });
     };
+    AppComponent.prototype.editarTipo = function (form) {
+        var _this = this;
+        console.log(form.value);
+        var body = form.value;
+        this.http.put('https://obpja153012.herokuapp.com/api/tipoobjeto/' + this.tipoElegido._id, body).subscribe(function (res) {
+            console.log(res);
+            _this.tipoElegido = null;
+            _this.refreshTipos();
+        });
+    };
+    AppComponent.prototype.elegirModo = function () {
+        if (this.modo == "alta") {
+            this.modo = "edicion";
+        }
+        else {
+            this.modo = "alta";
+        }
+    };
     return AppComponent;
-}());
+}()); /*fin  */
 AppComponent = __decorate([
     core_1.Component({
         selector: 'my-app',

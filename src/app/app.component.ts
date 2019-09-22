@@ -3,6 +3,7 @@ import { TipoObjeto } from "./tipoobjeto";
 import { NgForm } from '@angular/forms';
 import { Http } from '@angular/http';
 import firefox = require('selenium-webdriver/firefox');
+import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
 @Component({
   selector: 'my-app',
@@ -18,10 +19,9 @@ import firefox = require('selenium-webdriver/firefox');
 export class AppComponent { 
   titulo = 'Lista de Tareas';
   tipos = tiposLista;
-
-
   /* declaramos una variable de tipoObjeto, vamos a cargar el objeto que clickemos en la lista para borrar */
   tipoElegido:TipoObjeto;
+  modo = "alta";
 
   constructor(private http: Http){
 
@@ -57,6 +57,7 @@ export class AppComponent {
     
     this.http.delete('https://obpja153012.herokuapp.com/api/tipoobjeto/'+this.tipoElegido._id).subscribe(res => {
 
+      this.tipoElegido =null;
       this.refreshTipos();
 
        })
@@ -70,7 +71,36 @@ export class AppComponent {
           this.tipos = JSON.parse(res["_body"]);
         })
   }
-}
+
+
+
+  editarTipo(form: NgForm){
+    console.log(form.value);
+    const { value: body } = form;
+    this.http.put('https://obpja153012.herokuapp.com/api/tipoobjeto/'+this.tipoElegido._id,body).subscribe(res => {
+      console.log(res);
+      this.tipoElegido =null;
+
+      this.refreshTipos();  
+    })
+  
+  }
+
+  elegirModo(){
+    if (this.modo=="alta")
+    {
+      this.modo="edicion";
+    } else {
+      this.modo ="alta";
+    }
+  }
+
+
+
+} /*fin  */
+
+
+
 
 
 

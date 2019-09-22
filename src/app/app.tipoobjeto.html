@@ -1,24 +1,44 @@
-<form (ngSubmit)="onSubmit(f)" #f="ngForm">
-    <label for='nombreTipo'>Nombre dle nuevo tipo</label>
-    <input type="text" ngModel name="nombreTipo" placeholder="Ingrese el nombre" />
-    <label for="codigoTipo">Codigo de 3 caracteres</label>
-    <input type="text" ngModel name="codigoTipo" placeholder="Ingrese el codigo tipo" maxlength="3" minlength="10" style="text-transform:uppercase" />
-    <button type="submit">Ingresar</button>
-    
-  </form>
 
+
+<input type="button" (click)="elegirModo()" value="edicion" />
+
+    <h3>Alta de nuevo tipo</h3>
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <label for='nombreTipo'>Nombre dle nuevo tipo</label>
+        <input type="text" ngModel name="nombreTipo"  value="{{tipoElegido.nombreTipo}}" />
+        <label for="codigoTipo">Codigo de 3 caracteres</label>
+        <input type="text" ngModel name="codigoTipo" value="{{tipoElegido.codigoTipo}}" maxlength="3" minlength="10" style="text-transform:uppercase" />
+        <button type="submit">Ingresar</button>
+        
+      </form>
+
+      <h3>Eliminar tipo elegido</h3>
   <form name="frmEliminarTipo" (ngSubmit)="onSubmitEliminarTipo(f)" #f2="ngForm">
        <div>El tipo elegido a eliminar es {{tipoElegido.nombreTipo}}</div>
         <button type="submit">Eliminar</button>
         
   </form>
 
+      <h3>Editar tipo elegido</h3>
+      <form name="frmEditarTipo" (ngSubmit)="editarTipo(f)" #f3="ngForm">
+          <label for='nombreTipo'>Nombre</label>
+          <input type="text" ngModel name="nombreTipo" value="{{tipoElegido.nombreTipo}}"/>
+          <label for="codigoTipo">Codigo de 3 caracteres</label>
+          <input type="text" ngModel name="codigoTipo" value="{{tipoElegido.codigoTipo}}" maxlength="3" minlength="10" style="text-transform:uppercase" />
+          <input type="text" ngModel name="_id" value="{{tipoElegido._id}}" />   
+             <button type="submit">Editar</button>
+          
+        </form>
+  
+ 
+
 
 
   <div>
-    <ul>
-      <li *ngFor="let tipoobjeto of tipos" (click)="elegirTipo(tipoobjeto)">
-        <span>{{ tipoobjeto.nombreTipo }}</span>
-      </li>
-    </ul>
-  </div>
+      <h3>Lista de tipos existentes</h3>
+      <ul>
+        <li *ngFor="let tipoobjeto of tipos" (click)="elegirTipo(tipoobjeto)">
+          <span>{{ tipoobjeto.nombreTipo }}</span>
+        </li>
+      </ul>
+    </div>

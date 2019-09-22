@@ -1,1 +1,0 @@
-{"version":3,"file":"tarea-detalle.component.js","sourceRoot":"","sources":["tarea-detalle.component.ts"],"names":[],"mappings":";;;;;;;;;;AAAA,sCAAgD;AAChD,iCAAgC;AAiBhC,IAAa,qBAAqB;IAAlC;IAGA,CAAC;IAAD,4BAAC;AAAD,CAAC,AAHD,IAGC;AADG;IADC,YAAK,EAAE;8BACY,aAAK;kEAAA;AAFhB,qBAAqB;IAdjC,gBAAS,CAAC;QACP,QAAQ,EAAE,kBAAkB;QAC5B,QAAQ,EAAE,iUAST;KACJ,CAAC;GAEW,qBAAqB,CAGjC;AAHY,sDAAqB"}
