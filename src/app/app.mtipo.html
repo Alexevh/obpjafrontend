@@ -4,9 +4,9 @@
 <h3>Editar tipo elegido</h3>
 <form name="frmEditarTipo" (ngSubmit)="editarTipo(f)" #f="ngForm">
     <label for='nombreTipo'>Nombre</label>
-    <input type="text" ngModel name="nombreTipo" value="{{tipoElegido.nombreTipo}}"/>
+    <input type="text" [(ngModel)]="tipoElegido.nombreTipo" name="nombreTipo"/>
     <label for="codigoTipo">Codigo de 3 caracteres</label>
-    <input type="text" ngModel name="codigoTipo" value="{{tipoElegido.codigoTipo}}" maxlength="3" minlength="10" style="text-transform:uppercase" />
+    <input type="text" [(ngModel)]="tipoElegido.codigoTipo" name="codigoTipo" maxlength="3" minlength="10" style="text-transform:uppercase" />
     <input type="text" ngModel name="_id" value="{{tipoElegido._id}}" />   <br>
     <button type="submit">Editar</button>
     

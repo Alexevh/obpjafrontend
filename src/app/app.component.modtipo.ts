@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, ɵConsole } from '@angular/core';
 import { TipoObjeto } from "./tipoobjeto";
 import { NgForm, FormGroup, FormArray, FormBuilder } from '@angular/forms';
 import { Http } from '@angular/http';
@@ -34,8 +34,11 @@ export class AppComponentModTipo {
 
 
   editarTipo(form: NgForm){
+
     
     const {value: body} = form;
+    console.log('body',body);
+    console.log('tipoElegido', this.tipoElegido);
     
     //var envio = {"nombreTipo":this.tipoElegido.nombreTipo, "codigoTipo":this.tipoElegido.codigoTipo}
 
@@ -59,6 +62,7 @@ export class AppComponentModTipo {
 
   elegirTipo(_tipo:TipoObjeto):void{
     this.tipoElegido = _tipo;
+    console.log("tipo ",_tipo);
   }
 
   refreshTipos(){

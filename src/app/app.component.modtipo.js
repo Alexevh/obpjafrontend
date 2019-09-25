@@ -22,6 +22,8 @@ var AppComponentModTipo = (function () {
     AppComponentModTipo.prototype.editarTipo = function (form) {
         var _this = this;
         var body = form.value;
+        console.log('body', body);
+        console.log('tipoElegido', this.tipoElegido);
         //var envio = {"nombreTipo":this.tipoElegido.nombreTipo, "codigoTipo":this.tipoElegido.codigoTipo}
         this.http.put('https://obpja153012.herokuapp.com/api/tipoobjeto/' + this.tipoElegido._id, body).subscribe(function (res) {
             console.log(res);
@@ -35,6 +37,7 @@ var AppComponentModTipo = (function () {
     };
     AppComponentModTipo.prototype.elegirTipo = function (_tipo) {
         this.tipoElegido = _tipo;
+        console.log("tipo ", _tipo);
     };
     AppComponentModTipo.prototype.refreshTipos = function () {
         var _this = this;

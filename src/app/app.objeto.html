@@ -1,0 +1,61 @@
+
+
+<div id="principal"  >
+
+
+    <h3>Alta de nuevo Objeto</h3>
+
+    <form (ngSubmit)="onSubmit(f)" #f="ngForm">
+        <label for='numeroOrden'>numero de orden del nuevo objeto</label>
+        <input type="text" ngModel name="numeroOrden" value="{{objetoElegido.numeroOrden}}"/>
+        <label for="descripcionObjeto">Descripcion del e=objeto</label>
+        <input type="text" ngModel name="descripcionObjeto" value="{{objetoElegido.descripcionObjeto}}"  />
+        
+        <label for="estadoObjeto">Estado</label>
+        <select name="estadoObjeto" ngModel name="estadoObjeto" value="{{objetoElegido.estadoObjeto}}" >
+            <option value="Excelente">Excelente</option>
+            <option value="Bueno">Bueno</option>
+            <option value="Aceptable">Aceptable</option>
+            <option value="Malo">Malo</option>
+            <option value="Hecho percha">Hecho percha</option>
+          </select> 
+
+           
+        <label for="tipoObjeto">Tipo de objeto</label>
+        <select name="tipoObjeto" ngModel name="tipoObjeto" value="{{objetoElegido.tipoObjeto}}" >
+            <option  *ngFor="let tipoobjeto of tipos" value="{{tipoobjeto.codigoTipo}}">{{tipoobjeto.nombreTipo}}</option>
+          
+          </select> 
+
+
+
+        
+        <label for='idBase'>Cod. en BD</label>
+        <input type="text" ngModel name="_id" value="{{tipoElegido._id}}" disabled='true'/>  
+        <br>
+        <button type="submit" name="Alta">Ingresar</button>
+        
+      </form>
+
+   
+
+<h3>Listado de objetos</h3>
+    <table id="Grid">
+      <tr><th>Orden #</th><th>Descripcion</th></tr>
+      <tr *ngFor="let objeto of objetos" (click)="elegirObjeto(objeto)">
+        <td>{{ objeto.numeroOrden }}</td>
+        <td>{{ objeto.descripcionObjeto }}</td>
+      </tr>
+
+    </table>
+
+    <h3>Eliminar objeto elegido</h3>
+    <form name="frmEliminarObjeto" (ngSubmit)="onSubmitEliminarObjeto(f)" #f2="ngForm">
+         <div>El tipo elegido a eliminar es {{tipoElegido.nombreTipo}}</div>
+         
+          <button type="submit" onclick="return confirm('Se elininara el registro, esta seguro?')">Eliminar</button>
+          
+    </form>
+  
+
+  </div>

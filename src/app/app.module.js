@@ -12,6 +12,8 @@ var platform_browser_1 = require("@angular/platform-browser");
 /* los componentes hay que declararlos aca o el sistema no los ve */
 var app_component_1 = require("./app.component");
 var app_component_modtipo_1 = require("./app.component.modtipo");
+var app_component_objeto_1 = require("./app.component.objeto");
+var app_component_modobjeto_1 = require("./app.component.modobjeto");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -20,8 +22,8 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
-        declarations: [app_component_1.AppComponent, app_component_modtipo_1.AppComponentModTipo],
-        bootstrap: [app_component_1.AppComponent, app_component_modtipo_1.AppComponentModTipo]
+        declarations: [app_component_1.AppComponent, app_component_modtipo_1.AppComponentModTipo, app_component_objeto_1.AppComponentObjeto, app_component_modobjeto_1.AppComponentModObjeto],
+        bootstrap: [app_component_1.AppComponent, app_component_modtipo_1.AppComponentModTipo, app_component_objeto_1.AppComponentObjeto, app_component_modobjeto_1.AppComponentModObjeto]
     })
 ], AppModule);
 exports.AppModule = AppModule;
