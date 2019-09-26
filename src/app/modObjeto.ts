@@ -6,15 +6,20 @@ import { Http } from '@angular/http';
 import firefox = require('selenium-webdriver/firefox');
 import { THIS_EXPR } from '@angular/compiler/src/output/output_ast';
 
-
 /* SIEMPRE HAY QUE DECLARAR ESTO EN EL FICHERO APP.MODULE.TS */
 @Component({
-  selector: 'mod-obj',
-  templateUrl: './modobjeto.html'  
+  selector: 'modobj',
+  templateUrl: './modobjeto.html',
+  styles:[`
+    .tareas {
+      list-style-type:none;
+    }
+  `] 
+  
 })
 
 
-export class AppComponentModObjeto   {
+export class ModObjeto   {
 
  
   objetos = objetosLista;
@@ -30,7 +35,11 @@ export class AppComponentModObjeto   {
     console.log('la concha de mi madre');
     this.refreshObjetos();
     this.vaciarObjetoElegido();
+    this.refreshTipos();
     console.log('la concha de mi madre 2', this.objetos);
+
+    
+    
     
   }
 

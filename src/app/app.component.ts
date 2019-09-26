@@ -23,10 +23,12 @@ export class AppComponent {
   /* declaramos una variable de tipoObjeto, vamos a cargar el objeto que clickemos en la lista para borrar */
   tipoElegido:TipoObjeto;
   modo = "alta";
+  
 
   constructor(private http: Http){
     this.vaciarTipoElegido();
     this.refreshTipos();
+    this.tipoElegido = {"_id":"", "nombreTipo":"", "codigoTipo":""};
   }
 
   elegirTipo(_tipo:TipoObjeto):void{

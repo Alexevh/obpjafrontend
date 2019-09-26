@@ -1,0 +1,51 @@
+
+
+<div id="principal"  >
+
+
+    <h3>Modificacion de Objeto</h3>
+
+    <form name="frmEditarTipo" (ngSubmit)="editarObjeto(f)" #f="ngForm">
+        <label for="numeroOrden">numero de orden del nuevo objeto</label>
+        <input type="text" [(ngModel)]="objetoElegido.numeroOrden" name="numeroOrden" />
+        <label for="descripcionObjeto">Descripcion del e=objeto</label>
+        <input type="text" [(ngModel)]="objetoElegido.descripcionObjeto"  name="descripcionObjeto"  />
+        
+        <label for="estadoObjeto">Estado</label>
+        <select name="estadoObjeto" [(ngModel)]="objetoElegido.estadoObjeto"  >
+            <option value="Excelente">Excelente</option>
+            <option value="Bueno">Bueno</option>
+            <option value="Aceptable">Aceptable</option>
+            <option value="Malo">Malo</option>
+            <option value="Hecho percha">Hecho percha</option>
+          </select> 
+
+           
+          <label for="tipoObjeto">Tipo de objeto</label>
+          <select name="tipoObjeto" ngModel name="tipoObjeto" value="{{objetoElegido.tipoObjeto}}" >
+              <option  *ngFor="let tipoobjeto of tipos" value="{{tipoobjeto.codigoTipo}}">{{tipoobjeto.nombreTipo}}</option>
+            
+            </select> 
+        
+        <label for='idBase'>Cod. en BD</label>
+        <input type="text" [(ngModel)]="objetoElegido._id"  name="_id" disabled='true'/>  
+        <br>
+        <button type="submit" name="Alta">Editar</button>
+        
+      </form>
+
+   
+
+<h3>Listado de objetos {{ objetoElegido.descripcionObjeto}}</h3>
+    <table id="Grid">
+      <tr><th>Orden #</th><th>Descripcion</th></tr>
+      <tr *ngFor="let objeto of objetos" (click)="elegirObjeto(objeto)">
+        <td>{{ objeto.numeroOrden }}</td>
+        <td>{{ objeto.descripcionObjeto }}</td>
+      </tr>
+
+    </table>
+
+  
+
+  </div>

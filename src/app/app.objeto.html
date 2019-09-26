@@ -31,7 +31,7 @@
 
         
         <label for='idBase'>Cod. en BD</label>
-        <input type="text" ngModel name="_id" value="{{tipoElegido._id}}" disabled='true'/>  
+        <input type="text" ngModel name="_id" value="{{objetoElegido._id}}" disabled='true'/>  
         <br>
         <button type="submit" name="Alta">Ingresar</button>
         
@@ -51,7 +51,7 @@
 
     <h3>Eliminar objeto elegido</h3>
     <form name="frmEliminarObjeto" (ngSubmit)="onSubmitEliminarObjeto(f)" #f2="ngForm">
-         <div>El tipo elegido a eliminar es {{tipoElegido.nombreTipo}}</div>
+         <div>El tipo elegido a eliminar es {{objetoElegido.numeroOrden}}</div>
          
           <button type="submit" onclick="return confirm('Se elininara el registro, esta seguro?')">Eliminar</button>
           

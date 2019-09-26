@@ -7,11 +7,11 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppComponent }  from './app.component';
 import { AppComponentModTipo }  from './app.component.modtipo';
 import { AppComponentObjeto } from "./app.component.objeto";
-import { AppComponentModObjeto}  from "./app.component.modobjeto"
+import { ModObjeto }  from "./modObjeto";
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, HttpModule ],
-  declarations: [ AppComponent, AppComponentModTipo, AppComponentObjeto, AppComponentModObjeto],
-  bootstrap:    [ AppComponent, AppComponentModTipo, AppComponentObjeto, AppComponentModObjeto ]
+  declarations: [ AppComponent, AppComponentModTipo, AppComponentObjeto, ModObjeto],
+  bootstrap:    [ AppComponent, AppComponentModTipo, AppComponentObjeto, ModObjeto],
 })
 export class AppModule { }

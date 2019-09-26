@@ -31,6 +31,7 @@ export class AppComponentObjeto {
     this.vaciarObjetoElegido();
     this.refreshObjetos();
     this.refreshTipos();
+   
   }
 
   elegirObjeto(_objeto:Objeto):void{

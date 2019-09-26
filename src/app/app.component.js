@@ -18,6 +18,7 @@ var AppComponent = (function () {
         this.modo = "alta";
         this.vaciarTipoElegido();
         this.refreshTipos();
+        this.tipoElegido = { "_id": "", "nombreTipo": "", "codigoTipo": "" };
     }
     AppComponent.prototype.elegirTipo = function (_tipo) {
         this.tipoElegido = _tipo;

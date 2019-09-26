@@ -28,6 +28,7 @@ export class AppComponentModTipo {
   constructor(private http: Http){
     this.vaciarTipoElegido();
     this.refreshTipos();
+    this.tipoElegido ={"_id":"", "nombreTipo":"", "codigoTipo":""};
 
   }
 

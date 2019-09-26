@@ -18,6 +18,7 @@ var AppComponentModTipo = (function () {
         this.modo = "alta";
         this.vaciarTipoElegido();
         this.refreshTipos();
+        this.tipoElegido = { "_id": "", "nombreTipo": "", "codigoTipo": "" };
     }
     AppComponentModTipo.prototype.editarTipo = function (form) {
         var _this = this;
