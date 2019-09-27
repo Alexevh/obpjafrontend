@@ -23,6 +23,7 @@ export class ListadoObjeto   {
 
  
   objetos = objetosLista;
+  objetos2 = this.objetos;
   estados = [ 'Excelente', 'Bueno', 'Aceptable', 'Malo', 'Hecho percha' ];
 
 
@@ -30,14 +31,15 @@ export class ListadoObjeto   {
   constructor(private http: Http){
   
     this.refreshObjetos();
-    
+    this.objetos2 = this.objetos;
   }
 
  
 
 
-  async refreshObjetos(){
-    await this.http.get('https://obpja153012.herokuapp.com/api/objeto').subscribe(res => {
+   refreshObjetos(){
+    this.delay(6000);
+     this.http.get('https://obpja153012.herokuapp.com/api/objeto').subscribe(res => {
 
        /**tuve que poner corchetes y comillas o no andaba */
           this.objetos= JSON.parse(res["_body"]);
@@ -45,21 +47,27 @@ export class ListadoObjeto   {
         })
   }
 
+  async delay(ms: number) {
+    await new Promise(resolve => setTimeout(()=>resolve(), ms)).then(()=>console.log("fired"));
+}
+  
   filtrarEstado(estadoObjetos:String){
     
-         this.refreshObjetos();
 
+
+         this.objetos2 = this.objetos;
+         this.delay(3000);
         var listanueva =[];
 
-        for (var i=0; i<this.objetos.length; i++)
+        for (var i=0; i<this.objetos2.length; i++)
         {
-            if (this.objetos[i]["estadoObjeto"]==estadoObjetos)
+            if (this.objetos2[i]["estadoObjeto"]==estadoObjetos)
             {
-                listanueva.push(this.objetos[i]);
+                listanueva.push(this.objetos2[i]);
             }
         }
 
-        this.objetos = listanueva;
+        this.objetos2 = listanueva;
       }
 }
   

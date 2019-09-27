@@ -6,7 +6,8 @@
 
 <label for="estadoObjeto">Filtrar por estado</label>
 <select name="estadoObjeto"  #t (change)="filtrarEstado(t.value)" >
-    <option value="Excelente">Excelente</option>
+    <option value="" selected disabled>Seleccione..</option>
+  <option value="Excelente">Excelente</option>
     <option value="Bueno">Bueno</option>
     <option value="Aceptable">Aceptable</option>
     <option value="Malo">Malo</option>
@@ -16,7 +17,7 @@
 
 <table id="Grid">
   <tr><th>Orden #</th><th>Descripcion</th><th>Estado</th></tr>
-  <tr *ngFor="let objeto of objetos">
+  <tr *ngFor="let objeto of objetos2">
     <td>{{ objeto.numeroOrden }}</td>
     <td>{{ objeto.descripcionObjeto }}</td>
     <td>{{ objeto.estadoObjeto }}</td>

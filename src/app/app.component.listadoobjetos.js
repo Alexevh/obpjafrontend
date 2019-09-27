@@ -50,19 +50,25 @@ var ListadoObjeto = (function () {
     function ListadoObjeto(http) {
         this.http = http;
         this.objetos = objetosLista;
+        this.objetos2 = this.objetos;
         this.estados = ['Excelente', 'Bueno', 'Aceptable', 'Malo', 'Hecho percha'];
         this.refreshObjetos();
+        this.objetos2 = this.objetos;
     }
     ListadoObjeto.prototype.refreshObjetos = function () {
+        var _this = this;
+        this.delay(6000);
+        this.http.get('https://obpja153012.herokuapp.com/api/objeto').subscribe(function (res) {
+            /**tuve que poner corchetes y comillas o no andaba */
+            _this.objetos = JSON.parse(res["_body"]);
+            console.log(' estoy en refres objetos', _this.objetos);
+        });
+    };
+    ListadoObjeto.prototype.delay = function (ms) {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, this.http.get('https://obpja153012.herokuapp.com/api/objeto').subscribe(function (res) {
-                            /**tuve que poner corchetes y comillas o no andaba */
-                            _this.objetos = JSON.parse(res["_body"]);
-                            console.log(' estoy en refres objetos', _this.objetos);
-                        })];
+                    case 0: return [4 /*yield*/, new Promise(function (resolve) { return setTimeout(function () { return resolve(); }, ms); }).then(function () { return console.log("fired"); })];
                     case 1:
                         _a.sent();
                         return [2 /*return*/];
@@ -71,14 +77,15 @@ var ListadoObjeto = (function () {
         });
     };
     ListadoObjeto.prototype.filtrarEstado = function (estadoObjetos) {
-        this.refreshObjetos();
+        this.objetos2 = this.objetos;
+        this.delay(3000);
         var listanueva = [];
-        for (var i = 0; i < this.objetos.length; i++) {
-            if (this.objetos[i]["estadoObjeto"] == estadoObjetos) {
-                listanueva.push(this.objetos[i]);
+        for (var i = 0; i < this.objetos2.length; i++) {
+            if (this.objetos2[i]["estadoObjeto"] == estadoObjetos) {
+                listanueva.push(this.objetos2[i]);
             }
         }
-        this.objetos = listanueva;
+        this.objetos2 = listanueva;
     };
     return ListadoObjeto;
 }());
