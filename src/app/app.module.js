@@ -14,6 +14,7 @@ var app_component_1 = require("./app.component");
 var app_component_modtipo_1 = require("./app.component.modtipo");
 var app_component_objeto_1 = require("./app.component.objeto");
 var modObjeto_1 = require("./modObjeto");
+var app_component_listadoobjetos_1 = require("./app.component.listadoobjetos");
 var AppModule = (function () {
     function AppModule() {
     }
@@ -22,8 +23,8 @@ var AppModule = (function () {
 AppModule = __decorate([
     core_1.NgModule({
         imports: [platform_browser_1.BrowserModule, forms_1.FormsModule, http_1.HttpModule],
-        declarations: [app_component_1.AppComponent, app_component_modtipo_1.AppComponentModTipo, app_component_objeto_1.AppComponentObjeto, modObjeto_1.ModObjeto],
-        bootstrap: [app_component_1.AppComponent, app_component_modtipo_1.AppComponentModTipo, app_component_objeto_1.AppComponentObjeto, modObjeto_1.ModObjeto],
+        declarations: [app_component_1.AppComponent, app_component_modtipo_1.AppComponentModTipo, app_component_objeto_1.AppComponentObjeto, modObjeto_1.ModObjeto, app_component_listadoobjetos_1.ListadoObjeto],
+        bootstrap: [app_component_1.AppComponent, app_component_modtipo_1.AppComponentModTipo, app_component_objeto_1.AppComponentObjeto, modObjeto_1.ModObjeto, app_component_listadoobjetos_1.ListadoObjeto],
     })
 ], AppModule);
 exports.AppModule = AppModule;

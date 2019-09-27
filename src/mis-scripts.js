@@ -6,7 +6,9 @@ function altaTipo()
     var modtipo = document.getElementById('ModTipo');
     var altaobjeto = document.getElementById('AltaObjeto');
     var modobjeto = document.getElementById('ModObjeto');
+    var listaobjeto = document.getElementById('listadoObjeto');
 
+    listaobjeto.style.display = 'none';
     altatipo.style.display = 'block';
     modtipo.style.display = 'none';
     altaobjeto.style.display = 'none';
@@ -19,7 +21,9 @@ function edicionTipo()
     var modtipo = document.getElementById('ModTipo');
     var altaobjeto = document.getElementById('AltaObjeto');
     var modobjeto = document.getElementById('ModObjeto');
+    var listaobjeto = document.getElementById('listadoObjeto');
 
+    listaobjeto.style.display = 'none';
     altatipo.style.display = 'none';
     modtipo.style.display = 'block';
     altaobjeto.style.display = 'none';
@@ -33,7 +37,9 @@ function edicionObjeto()
     var modtipo = document.getElementById('ModTipo');
     var altaobjeto = document.getElementById('AltaObjeto');
     var modobjeto = document.getElementById('ModObjeto');
+    var listaobjeto = document.getElementById('listadoObjeto');
 
+    listaobjeto.style.display = 'none';
     altatipo.style.display = 'none';
     modtipo.style.display = 'none';
     altaobjeto.style.display = 'none';
@@ -46,10 +52,27 @@ function altaObjeto()
     var modtipo = document.getElementById('ModTipo');
     var altaobjeto = document.getElementById('AltaObjeto');
     var modobjeto = document.getElementById('ModObjeto');
+    var listaobjeto = document.getElementById('listadoObjeto');
 
+    listaobjeto.style.display = 'none';
     altatipo.style.display = 'none';
     modtipo.style.display = 'none';
     altaobjeto.style.display = 'block';
+    modobjeto.style.display = 'none';
+}
+
+function listaObjeto()
+{
+    var altatipo = document.getElementById('AltaTipo');
+    var modtipo = document.getElementById('ModTipo');
+    var altaobjeto = document.getElementById('AltaObjeto');
+    var modobjeto = document.getElementById('ModObjeto');
+    var listaobjeto = document.getElementById('listadoObjeto');
+
+    listaobjeto.style.display = 'block';
+    altatipo.style.display = 'none';
+    modtipo.style.display = 'none';
+    altaobjeto.style.display = 'none';
     modobjeto.style.display = 'none';
 }
 
